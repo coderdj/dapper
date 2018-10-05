@@ -20,10 +20,6 @@ class BCryptAuth(BasicAuth):
     def check_auth(self, username, password, allowed_roles, resource, method):
         # use Eve's own db driver; no additional connections/resources are used        
         account = self.user_collection.find_one({'api_username': username})
-        print(username)
-        print(password)
-        logger.debug(username)
-        logger.debug(password)
         return (account and \
             bcrypt.hashpw(password.encode('utf-8'),
                           account['api_key'].encode('utf-8')) == account['api_key'].encode('utf-8'))
