@@ -1,0 +1,6 @@
+source activate eve
+python run.py
+
+
+i.e.
+curl http://127.0.0.1:5000/aggregate_status/tpc?sort=-_id
